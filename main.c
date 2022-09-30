@@ -13,8 +13,9 @@ void firstQuestion()
     printf("You have %d free sodas\n",dollar/2);
     printf("You can have : %d sodas.\n",nbSodas);
     scanf("");
-    
+
 }
+
 
 void secondQuestion()
 {
@@ -41,9 +42,66 @@ void secondQuestion()
 
 }
 
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void adjustArray(int array[], int size)
+{
+    int left = 0; //beginning of the array
+    int right = size-1; //end of the array
+
+    while(left<right)
+    {
+        while(array[left]%2 == 0 && left < right)//it means that the numbers are odd or already sort if left > right
+        {
+            left++;
+        }
+
+        while(array[right]%2 == 1 && left < right)//same on the other side
+        {
+            right--;
+        }
+        //Here left and right are 2 numbers in the wrong place so we swap them
+        if(left < right)
+        {
+            swap(&array[left], &array[right]);//we use the pointers to exange without any return
+            left++;
+            right--;
+        }
+    }
+
+    for(int i =0; i < size; i++)
+    {
+        if(i != size-1)
+        {
+            printf("%d - ",array[i]);
+        }
+        else printf("%d", array[i]);
+    }
+}
+
+
+
 int main()
 {
     //firstQuestion();
-    secondQuestion();
+    //secondQuestion();
+
+    int size;
+    printf("Enter the size of the array you want to create : \n");
+    scanf("%d", &size);
+    int array[size];
+
+    for(int i =0; i < size; i++)
+    {
+        printf("Value %d : \n", i+1);
+        scanf("%d", &array[i]);
+    }
+
+    adjustArray(array, size);
     return 0;
 }
