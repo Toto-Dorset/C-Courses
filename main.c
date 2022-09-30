@@ -104,5 +104,4 @@ int main()
 
     adjustArray(array, size);
     return 0;
-    //test pull
 }
