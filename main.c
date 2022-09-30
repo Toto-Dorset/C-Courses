@@ -13,6 +13,7 @@ void firstQuestion()
     printf("You have %d free sodas\n",dollar/2);
     printf("You can have : %d sodas.\n",nbSodas);
     scanf("");
+    
 }
 
 void secondQuestion()
